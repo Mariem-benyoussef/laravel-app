@@ -36,7 +36,6 @@ class TaskController extends Controller
             'status' => 'required|string',
             'priority' => 'required|string',
             'due_date' => 'nullable|date',
-            'user_id' => 'required|exists:users,id',
         ]);
 
         $task = Task::create($validated);
