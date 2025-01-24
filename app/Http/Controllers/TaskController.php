@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Task; 
+
+use App\Models\Task;
 use Illuminate\Http\Request;
+
 class TaskController extends Controller
 {
     public function index()
     {
         $tasks = Task::all();
-    
+
         if ($tasks->isEmpty()) {
             return response()->json(['message' => 'No tasks found.'], 404);
         }
-    
+
         return response()->json($tasks, 200);
     }
-    
+
 
     public function show($id)
     {
@@ -75,5 +77,4 @@ class TaskController extends Controller
 
         return response()->json(['message' => 'Tâche supprimée avec succès']);
     }
-
 }
