@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 // Routes accessibles à tous les utilisateurs authentifiés
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/tasks', [TaskController::class, 'index']);
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');;
     Route::get('/task/{id}', [TaskController::class, 'show']);
 });
 
@@ -35,6 +35,11 @@ Route::middleware(['auth:sanctum', 'role:ADMIN'])->group(function () {
 });
 
 Route::middleware('auth:sanctum')->post('/logout', [AuthenticatedSessionController::class, 'destroy']);
+
+// routes/api.php or routes/web.php
+Route::get('sanctum/csrf-cookie', function () {
+    return response()->json(['message' => 'CSRF cookie set']);
+});
 
 
 // Route::apiResource('tasks', TaskController::class);
