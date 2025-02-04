@@ -21,7 +21,6 @@ return [
         parse_url(Sanctum::currentApplicationUrlWithPort(), PHP_URL_HOST)
     ))),
 
-
     /*
     |--------------------------------------------------------------------------
     | Sanctum Guards
