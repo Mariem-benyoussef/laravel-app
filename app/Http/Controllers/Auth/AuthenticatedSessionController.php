@@ -40,7 +40,8 @@ class AuthenticatedSessionController extends Controller
             'message' => 'Login successful',
             'user' => $user,
             'token' => $token,
-        ]);
+        ])
+            ->cookie('token', $token, 60 * 24, '/', null, true, true);  // Token en cookie HTTP-only;
     }
 
     /**
@@ -54,6 +55,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return response()->noContent();
+        // Suppression du cookie du token
+        $cookieName = 'token';
+        $response = response()->noContent();
+
+        // Supprime le cookie
+        return $response->withCookie(cookie()->forget($cookieName));
     }
 }
