@@ -41,7 +41,10 @@ class AuthenticatedSessionController extends Controller
             'user' => $user,
             'token' => $token,
         ])
-            ->cookie('token', $token, 60 * 24, '/', null, true, true);  // Token en cookie HTTP-only;
+            ->cookie('token', $token, 60 * 24, '/', null, true, true)  // Token sécurisé en HTTP-only
+            ->cookie('user', json_encode(['id' => $user->id, 'name' => $user->name]), 60 * 24, '/', null, false, false) // Stocker ID et nom
+            ->cookie('role', $user->role, 60 * 24, '/', null, false, false); // Stocker le rôle
+
     }
 
     /**
