@@ -1,66 +1,107 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projet Backend - Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ce projet est le backend d'une application CRUD avec authentification, développé avec **Laravel**. Il fournit une API RESTful pour le frontend Next.js.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fonctionnalités
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Authentification** : Gestion des utilisateurs avec Sanctum.
+-   **Gestion des utilisateurs** : Deux rôles disponibles (Admin et User).
+-   **CRUD** : Création, lecture, mise à jour et suppression de taches.
+-   **Permissions** : Accès restreint en fonction du rôle (Admin ou User).
+-   **Documentation API** : Disponible via Postman ou Swagger.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Prérequis
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   **PHP** (version 8.0 ou supérieure)
+-   **Composer**
+-   **Base de données** (MySQL, PostgreSQL, etc.)
+-   **Node.js** (pour les dépendances frontend si nécessaire)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 1. Cloner le dépôt
 
-### Premium Partners
+Clonez ce dépôt sur votre machine locale :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+git clone https://github.com/Mariem-benyoussef/laravel-app
+cd laravel-app
+2. Installer les dépendances
+Installez toutes les dépendances nécessaires :
 
-## Contributing
+bash
+Copy
+composer install
+3. Configurer les variables d'environnement
+Créez un fichier .env à la racine du projet et configurez les variables suivantes :
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+env
+Copy
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nom_de_la_base
+DB_USERNAME=root
+DB_PASSWORD=
+4. Générer une clé d'application
+Générez une clé d'application Laravel :
 
-## Code of Conduct
+bash
+Copy
+php artisan key:generate
+5. Exécuter les migrations et seeders
+Migrez la base de données et exécutez les seeders :
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+bash
+Copy
+php artisan migrate --seed
+6. Démarrer le serveur
+Lancez le serveur de développement :
 
-## Security Vulnerabilities
+bash
+Copy
+php artisan serve
+7. Accéder à l'API
+L'API sera disponible à l'adresse suivante :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Copy
+http://localhost:8000/api/tasks
+Déploiement
+Ce projet peut être déployé sur un serveur compatible PHP (ex: Laravel Forge, Heroku, etc.). Assurez-vous de configurer les variables d'environnement sur le serveur.
 
-## License
+Technologies utilisées
+Laravel : Framework PHP pour le backend.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+JWT ou Sanctum : Pour l'authentification.
+
+Eloquent ORM : Pour la gestion de la base de données.
+
+MySQL/PostgreSQL : Base de données relationnelle.
+
+Contribuer
+Si vous souhaitez contribuer à ce projet, suivez ces étapes :
+
+Forkez le projet.
+
+Créez une nouvelle branche (git checkout -b feature/nouvelle-fonctionnalité).
+
+Committez vos changements (git commit -m 'Ajout d'une nouvelle fonctionnalité').
+
+Pushez la branche (git push origin feature/nouvelle-fonctionnalité).
+
+Ouvrez une Pull Request.
+
+Auteur
+Mariem Ben Youssef
+
+Licence
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+```
