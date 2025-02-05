@@ -34,7 +34,7 @@ Clonez ce dépôt sur votre machine locale :
 ```bash
 git clone https://github.com/Mariem-benyoussef/laravel-app
 cd laravel-app
-2. Installer les dépendances
+### 2. Installer les dépendances
 Installez toutes les dépendances nécessaires :
 
 bash
