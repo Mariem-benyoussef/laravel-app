@@ -92,6 +92,8 @@ http://localhost:8000/api/tasks
 - **Laravel Passport : Authentification par token**
 - **Postman/Swagger : Documentation et test des API**
 
+---
+
 ✨ Auteur 👤 Mariem Ben Youssef 📧 Email : benyoussefmeriem27@gmail.com 🔗 GitHub : https://github.com/Mariem-benyoussef/
 
 
