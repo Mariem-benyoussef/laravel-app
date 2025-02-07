@@ -168,7 +168,7 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE', false),  // Set to false for HTTP
+    'secure' => env('SESSION_SECURE_COOKIE', false), // false for local HTTP, true for HTTPS
 
     /*
     |--------------------------------------------------------------------------
@@ -181,7 +181,7 @@ return [
     |
     */
 
-    'http_only' => true,
+    'http_only' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -197,5 +197,6 @@ return [
     */
 
     'same_site' => 'lax',  // Allow cross-origin cookies
+
 
 ];
